@@ -17,8 +17,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 20
-      - run: npm lint
-      - run: npm test
+      - run: npm run lint
+      - run: npm run tests
 
   publish-npm:
     name: Publish to npm
