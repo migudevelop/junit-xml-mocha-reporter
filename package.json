@@ -1,10 +1,9 @@
 {
-  "name": "junit-mocha-reporter",
+  "name": "junit-xml-mocha-reporter",
   "version": "0.0.1",
-  "description": "A JUnit reporter for mocha.",
+  "description": "A JUnit XML reporter for mocha.",
   "main": "index.js",
   "scripts": {
-    "ci": "npm run lint && npm run test",
     "lint": "eslint ./**/*.{js,jsx,ts,tsx}",
     "tests": "mocha test --reporter=spec",
     "lint:fix": "eslint --fix ./**/*.{js,jsx,ts,tsx}",
@@ -15,17 +14,28 @@
   "author": "Migudevelop",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/migudevelop/junit-mocha-reporter.git"
+    "url": "git+https://github.com/migudevelop/junit-xml-mocha-reporter.git"
   },
-  "homepage": "https://github.com/migudevelop/junit-mocha-reporter.git",
+  "homepage": "https://github.com/migudevelop/junit-xml-mocha-reporter.git",
   "engines": {
     "node": ">= 18.0.x"
   },
+  "files": [
+    "src/**/*",
+    "index.js",
+    "LICENSE",
+    "package.json"
+  ],
   "keywords": [
     "mocha",
     "junit",
     "cypress",
     "xml",
+    "xunit",
+    "e2e",
+    "test",
+    "tests",
+    "javascript",
     "reporter"
   ],
   "license": "MIT",
