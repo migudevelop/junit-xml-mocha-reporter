@@ -8,8 +8,7 @@
     "tests": "mocha test --reporter=spec",
     "lint:fix": "eslint --fix ./**/*.{js,jsx,ts,tsx}",
     "prettify": "prettier . --write",
-    "prettier:check": "prettier . --check",
-    "prepare": "husky install"
+    "prettier:check": "prettier . --check"
   },
   "author": "Migudevelop",
   "repository": {
