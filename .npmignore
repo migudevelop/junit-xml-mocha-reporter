@@ -1,0 +1,8 @@
+*.json
+*.config.js
+*.yml
+
+*.tgz
+
+coverage
+test
