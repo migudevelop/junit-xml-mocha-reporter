@@ -1,11 +1,33 @@
-# XML Reporter for Mocha
+# junit-xml-mocha-reporter
 
-Produces JUnit-style XML test results.
+This mocha reporter produces JUnit-style XML test results and allows you to split the same test into different test cases by jira id.
+
+## Table of Contents
+
+<details>
+<summary><strong>Details</strong></summary>
+
+- [Installation](#installation)
+- [Usage](#usage)
+  * [Split the same test case by id of jira](#split-the-same-test-case-by-id-of-jira)
+  * [Append properties to testsuite](#append-properties-to-testsuite)
+  * [Results Report](#results-report)
+  * [System out and system err](#system-out-and-system-err)
+  * [Attachments](#attachments)
+  * [Full configuration options](#full-configuration-options)
+- [Debug mode](#debug-mode)
+- [License](#license)
+
+</details>
 
 ## Installation
 
 ```shell
  pnpm install junit-xml-mocha-reporter --save-dev
+```
+
+```shell
+ npm install junit-xml-mocha-reporter --save-dev
 ```
 
 ## Usage
@@ -38,8 +60,8 @@ const mocha = new Mocha({
 ### Split the same test case by id of jira
 
 You can also add the jira key in the `reporterOptions` or in environment variables to split the same test into different test cases. This is useful if you want to test different tests in the same test in Cypress without affecting performance. If you want provided more than one jira id you should divide the ids with the `,` separator. e.g: `title one JIRA.KEY.1,JIRA.KEY.2,JIRA.KEY.3`
-
-> **⚠️ Important:** You shoult put the jira ids in the end of the title. e.g: `title one JIRA.KEY.1,JIRA.KEY.2,JIRA.KEY.3`.
+>[!IMPORTANT]
+> You shoult put the jira ids in the end of the title. e.g: `title one JIRA.KEY.1,JIRA.KEY.2,JIRA.KEY.3`.
 
 To do this, enter them using the environment variable:
 ```shell
@@ -200,13 +222,6 @@ output line 2
 [[ATTACHMENT|path/to/file]]</system-out>
 ```
 
-## Debug mode
-
-If you need see the log when it's executed you can provide the `DEBUG` envionment variable.
-```shell
-DEBUG=true
-```
-
 ### Full configuration options
 
 | Parameter                      | Default                | Effect                                                                                                                  |
@@ -218,3 +233,14 @@ DEBUG=true
 | testSuitesTitle                | `Mocha Tests`          | The name for the `testsuites` tag (defaults to 'Mocha Tests')                                                           |
 | outputs                        | `false`                | If set to truthy value will include console output and console error output                                             |
 | attachments                    | `false`                | If set to truthy value will attach files to report in `JUnit Attachments Plugin` format (after console outputs, if any) |
+
+## Debug mode
+
+If you need see the log when it's executed you can provide the `DEBUG` envionment variable.
+```shell
+DEBUG=true
+```
+
+## License
+
+MIT, see [LICENSE](./LICENSE) for details.
