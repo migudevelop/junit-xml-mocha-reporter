@@ -1,5 +1,6 @@
 # junit-xml-mocha-reporter
 ![NPM Version](https://img.shields.io/npm/v/junit-xml-mocha-reporter)
+![GitHub Release](https://img.shields.io/github/v/release/migudevelop/junit-xml-mocha-reporter)
 ![GitHub License](https://img.shields.io/github/license/migudevelop/junit-xml-mocha-reporter)
 
 This mocha reporter produces JUnit-style XML test results and allows you to split the same test into different test cases by jira id.
