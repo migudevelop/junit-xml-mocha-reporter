@@ -25,7 +25,7 @@ const { Base } = reporters
  * @param {EventEmitter} runner - Test runner
  * @param {Object} options - Mocha options
  */
-class JUnitMochaReporter extends Base {
+class JUnitXmlMochaReporter extends Base {
   _runner = null
   _options = null
   _fileManager = null
@@ -51,7 +51,7 @@ class JUnitMochaReporter extends Base {
   }
 
   _addTest(test) {
-    return this._testSuites.at(-1).testsuite.push(test)
+    return this._lastSuite().push(test)
   }
 
   _onStart() {
@@ -97,4 +97,4 @@ class JUnitMochaReporter extends Base {
   }
 }
 
-module.exports = JUnitMochaReporter
+module.exports = JUnitXmlMochaReporter

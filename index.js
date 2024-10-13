@@ -1,4 +1,4 @@
 'use strict'
-const JUnitMochaReporter = require('./src/JUnitMochaReporter.js')
+const JUnitXmlMochaReporter = require('./src/JUnitXmlMochaReporter.js')
 
-module.exports = JUnitMochaReporter
+module.exports = JUnitXmlMochaReporter

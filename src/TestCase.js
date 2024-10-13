@@ -1,7 +1,6 @@
 const {
   isFunction,
   isUndefined,
-  isEmptyArray,
   isString
 } = require('@migudevelop/types-utils')
 const { reporters } = require('mocha')
@@ -54,35 +53,6 @@ class TestCase {
           })
         ]
       })
-    }
-
-    // We need to merge console.logs and attachments into one <system-out> -
-    //  see JUnit schema (only accepts 1 <system-out> per test).
-    let systemOutLines = []
-    if (this._options.outputs && !isEmptyArray(test?.consoleOutputs)) {
-      systemOutLines = systemOutLines.concat(test.consoleOutputs)
-    }
-    if (this._options.attachments && !isEmptyArray(test?.attachments)) {
-      systemOutLines = systemOutLines.concat(
-        test.attachments.map(function (file) {
-          return '[[ATTACHMENT|' + file + ']]'
-        })
-      )
-    }
-    if (systemOutLines?.length > 0) {
-      testcase.map((data) =>
-        data.testcase.push({
-          'system-out': xmlSanitizer(systemOutLines.join('\n'))
-        })
-      )
-    }
-
-    if (this._options.outputs && !isEmptyArray(test?.consoleErrors)) {
-      testcase.map((data) =>
-        data.testcase.push({
-          'system-err': xmlSanitizer(test.consoleErrors.join('\n'))
-        })
-      )
     }
 
     this._checkFailure(testcase, err)

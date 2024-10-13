@@ -18,11 +18,6 @@ class Config {
       'results.xml'
     )
     this._options.jiraId = this._getSetting(options.jiraId, 'JIRA_ID', null)
-    this._options.attachments = this._getSetting(
-      options.attachments,
-      'ATTACHMENTS',
-      false
-    )
     this._options.rootSuiteTitle = this._getSetting(
       options.rootSuiteTitle,
       'ROOT_SUITE_TITLE',
