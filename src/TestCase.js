@@ -1,4 +1,9 @@
-const { isFunction, isUndefined } = require('@migudevelop/types-utils')
+const {
+  isFunction,
+  isUndefined,
+  isEmptyArray,
+  isString
+} = require('@migudevelop/types-utils')
 const { reporters } = require('mocha')
 const xmlSanitizer = require('xml-sanitizer')
 const { Base } = reporters
@@ -24,7 +29,7 @@ class TestCase {
 
     const testcase = []
 
-    if (name.includes(this._options.jiraId)) {
+    if (isString(this._options.jiraId) && name.includes(this._options.jiraId)) {
       const testCaseJiraData = this._getJiraIds(name, classname)
       testCaseJiraData.jiraIds.forEach((jiraId) => {
         const newName = `${testCaseJiraData.name} ${jiraId.trim()}`
@@ -54,10 +59,10 @@ class TestCase {
     // We need to merge console.logs and attachments into one <system-out> -
     //  see JUnit schema (only accepts 1 <system-out> per test).
     let systemOutLines = []
-    if (this._options.outputs && test?.consoleOutputs?.length > 0) {
+    if (this._options.outputs && !isEmptyArray(test?.consoleOutputs)) {
       systemOutLines = systemOutLines.concat(test.consoleOutputs)
     }
-    if (this._options.attachments && test?.attachments?.length > 0) {
+    if (this._options.attachments && !isEmptyArray(test?.attachments)) {
       systemOutLines = systemOutLines.concat(
         test.attachments.map(function (file) {
           return '[[ATTACHMENT|' + file + ']]'
@@ -72,7 +77,7 @@ class TestCase {
       )
     }
 
-    if (this._options.outputs && test?.consoleErrors?.length > 0) {
+    if (this._options.outputs && !isEmptyArray(test?.consoleErrors)) {
       testcase.map((data) =>
         data.testcase.push({
           'system-err': xmlSanitizer(test.consoleErrors.join('\n'))

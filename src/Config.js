@@ -17,7 +17,7 @@ class Config {
       'MOCHA_FILE',
       'results.xml'
     )
-    this._options.jiraId = this._getSetting(options.jiraId, 'JIRA_ID', 'JIRA')
+    this._options.jiraId = this._getSetting(options.jiraId, 'JIRA_ID', null)
     this._options.attachments = this._getSetting(
       options.attachments,
       'ATTACHMENTS',
@@ -28,15 +28,10 @@ class Config {
       'ROOT_SUITE_TITLE',
       'Root Suite'
     )
-    this._options.testsuitesTitle = this._getSetting(
-      options.testsuitesTitle,
+    this._options.testSuitesTitle = this._getSetting(
+      options.testSuitesTitle,
       'TEST_SUITES_TITLE',
       'Mocha Tests'
-    )
-    this._options.suiteTitleSeparatedBy = this._getSetting(
-      options.suiteTitleSeparatedBy,
-      'SUITE_TITLE_SEPARATED_BY',
-      ' '
     )
   }
 

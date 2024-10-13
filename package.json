@@ -10,7 +10,7 @@
     "prettify": "prettier . --write",
     "prettier:check": "prettier . --check"
   },
-  "author": "Migudevelop",
+  "author": "Miguel Martínez",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/migudevelop/junit-xml-mocha-reporter.git"
@@ -23,6 +23,7 @@
     "src/**/*",
     "index.js",
     "LICENSE",
+    "README.md",
     "package.json"
   ],
   "keywords": [

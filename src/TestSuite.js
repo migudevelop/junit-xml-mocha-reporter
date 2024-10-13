@@ -23,7 +23,7 @@ class TestSuite {
     }
 
     const properties = this._generateProperties(this._options)
-    if (properties?.length) {
+    if (!isEmptyArray(properties)) {
       testSuite.testsuite.push({
         properties: properties
       })

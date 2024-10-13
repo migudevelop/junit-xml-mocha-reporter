@@ -68,9 +68,10 @@ class FileManager {
 
       totalTests += _suiteAttr.tests
     })
+
     const rootSuite = {
       _attr: {
-        name: this._options.testsuitesTitle,
+        name: this._options.testSuitesTitle,
         time: (stats.duration / 1000 || 0).toFixed(3),
         tests: totalTests,
         failures: stats.failures
@@ -126,10 +127,10 @@ class FileManager {
       return reportFilename.replace('[hash]', md5(xml))
     }
 
-    if (reportFilename.includes('[testsuitesTitle]')) {
+    if (reportFilename.includes('[testSuitesTitle]')) {
       return reportFilename.replace(
-        '[testsuitesTitle]',
-        this._options.testsuitesTitle
+        '[testSuitesTitle]',
+        this._options.testSuitesTitle
       )
     }
     if (reportFilename.includes('[rootSuiteTitle]')) {
